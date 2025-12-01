@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Number Tools</title>
+</head>
+<body>
+    <div>
+        <div>
+            <h2>min</h2>
+            <input id="n1" placeholder="First number" type="number">
+            <input id="n2" placeholder="Second number" type="number">
+            <input id="n3" placeholder="Third number" type="number">
+            <input id="n4" placeholder="Fourth number" type="number">
+            <button id="minBtn">Find</button>
+            <div id="minOut">-></div>
+        </div>
+        
+        <div>
+            <h2>sum</h2>
+            <button id="sumBtn">calc</button>
+            <div id="sumOut">-></div>
+        </div>
+        <div>
+            <h2>Sondgoi</h2>
+            <button id="oddsBtn">show</button>
+            <div id="oddsOut">-></div>
+        </div>
+        <div>
+            <h2>Prime</h2>
+            <input id="primeInput" placeholder="Enter a number" type="number">
+            <button id="primeBtn">Check</button>
+            <div id="primeOut">-></div>
+        </div>
+    </div>
+        <script>
+            function checkPrime(num) {
+                if (num<2) return false;
+                if (num==2) return true;
+                if (num%2===0) return false;
+                for (let i=3 ; i<num ; i+=2) {
+                    if (num%i===0)
+                        return false;
+                }
+                return true;
+                }
+                function clearInputs() {
+                document.getElementById('n1').value = '';
+                document.getElementById('n2').value = '';
+                document.getElementById('n3').value = '';
+                document.getElementById('n4').value = '';
+                document.getElementById('primeInput').value = '';
+            }
+            document.getElementById('minBtn').onclick = function() {
+                var num1 = Number(document.getElementById('n1').value);
+                var num2 = Number(document.getElementById('n2').value);
+                var num3 = Number(document.getElementById('n3').value);
+                var num4 = Number(document.getElementById('n4').value);
+                if (n1===0 || n2===0 || n3===0 || n4===0) {
+                    alert("0 oruulj bolohgu");
+                    return;
+                }
+                var min = num1;
+                if (num2<min) min=num2;
+                if (num3<min) min=num3;
+                if (num4<min) min=num4;
+                document.getElementById('minOut').textContent='min: '+min;
+                clearInputs();
+            };
+            document.getElementById('sumBtn').onclick=function() {
+                let sum=0;
+                for (let i=1 ; i<=10 ; i++){
+                    if (i%2===0){
+                    sum=sum+i;
+                    }
+                }
+                document.getElementById('sumOut').textContent='niilber: ' + sum;
+                clearInputs();
+            };
+            document.getElementById('oddsBtn').onclick = function() {
+                let oddNumbers=[];
+                for (let i=1 ; i<=20 ; i++) {
+                    if (i%2===1) {
+                    oddNumbers.push(i);
+                    }
+                }
+                document.getElementById('oddsOut').textContent='Odd numbers: '+oddNumbers.join(', ');
+                console.log('odd number:', oddNumbers.join(' '));
+                clearInputs();
+            };
+            document.getElementById('primeBtn').onclick = function() {
+                let num=Number(document.getElementById('primeInput').value);
+                var isPrime=checkPrime(num);
+                if (isPrime) {
+                    document.getElementById('primeOut').textContent=num+' is prime';
+                } else {
+                    document.getElementById('primeOut').textContent=num+' is not prime';
+                }
+                clearInputs();
+            };
+        </script>
+    </body>
+</html>
