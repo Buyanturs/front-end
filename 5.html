@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Div Generator</title>
+    <style>
+        .item {
+            padding: 10px;
+            margin: 5px 0;
+            background: lightgray;
+            border-radius: 5px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+
+<input id="inputText" type="text" placeholder="Enter text">
+
+<button onclick="add()">Add</button>
+<button onclick="re()">Remove Last</button>
+
+<div id="container"></div>
+
+<script>
+function add() {
+    let text = document.getElementById("inputText").value;
+    if (text.trim() === "") return;
+    let newDiv = document.createElement("div");
+    newDiv.classList.add("item");
+    newDiv.innerText = text;
+    document.getElementById("container").appendChild(newDiv);
+    document.getElementById("inputText").value = "";
+}
+
+function re() {
+    let container = document.getElementById("container");
+    if (container.lastChild) {
+        container.removeChild(container.lastChild);
+    }
+}
+</script>
+
+</body>
+</html>

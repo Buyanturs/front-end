@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="text">Original text</p>
+
+<button onclick="changeStuff()">Click me</button>
+
+<script>
+function changeStuff() {
+    document.getElementById("text").innerText = "The text has changed!";
+    document.body.style.backgroundColor = getRandomColor();
+}
+
+function getRandomColor() {
+    return '#' + Math.floor(Math.random()*16777215).toString(16);
+}
+</script>
+
+</body>
+</html>

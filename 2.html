@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<input id="num1" type="number" placeholder="First number">
+<input id="num2" type="number" placeholder="Second number">
+
+<br><br>
+
+<button onclick="calc('+')">+</button>
+<button onclick="calc('-')">-</button>
+<button onclick="calc('*')">*</button>
+<button onclick="calc('/')">/</button>
+
+<p id="result"></p>
+
+<script>
+function calc(op) {
+    let a = parseFloat(document.getElementById("num1").value);
+    let b = parseFloat(document.getElementById("num2").value);
+    let r;
+    if (op === "+") r = a + b;
+    else if (op === "-") r = a - b;
+    else if (op === "*") r = a * b;
+    else if (op === "/") {
+        if (b === 0) {
+            r = "Teg bishee";
+        } else {
+            r = a / b;
+        }
+    }
+    if (!isNaN(r)) {
+        document.getElementById("num1").value = r;
+    }
+
+    return r;
+}
+</script>
+
+</body>
+</html>
